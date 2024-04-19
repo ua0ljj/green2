@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Форма сознания задачи</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="myForm" novalidate>
+    <mat-form-field appearance="fill">
+        <mat-label>Название</mat-label>
+        <input matInput name="overview" formControlName="overview" />
+        @if(myForm.controls["overview"].invalid && myForm.controls["overview"].touched){
+          <div class="alert">Не указано Название</div>
+        }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Описание</mat-label>
+        <input matInput name="description" formControlName="description" />
+        @if(myForm.controls["description"].invalid && myForm.controls["description"].touched){
+          <div class="alert">Не указано Описание</div>
+        }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Ответственный</mat-label>
+        <input matInput name="user" formControlName="user" />
+        @if(myForm.controls["user"].invalid && myForm.controls["user"].touched){
+          <div class="alert">Не указано Ответственный</div>
+        }
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Крайний срок</mat-label>
+        <input matInput matInput [matDatepicker]="endDate" formControlName="endDate">
+        <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Отмена</button>
+  <button mat-button [mat-dialog-close]="myForm.getRawValue()" [disabled]="myForm.invalid" cdkFocusInitial>Создать</button>
+</mat-dialog-actions>

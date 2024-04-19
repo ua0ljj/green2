@@ -1,0 +1,8 @@
+{
+    "/stat/**": {
+      "target": "https://api-metrika.yandex.ru",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }

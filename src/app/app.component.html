@@ -1,0 +1,26 @@
+<main class="main">
+  <section>
+    <h3>На текущий день пользователей {{ counts }}</h3>
+  </section>
+
+  <div class="date">
+    <mat-form-field>
+    <mat-label>дата начала</mat-label>
+    <input matInput [matDatepicker]="start" [value]="startDate"   (dateChange)="startChange($event)">
+    <mat-datepicker-toggle matIconSuffix [for]="start"></mat-datepicker-toggle>
+    <mat-datepicker #start [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>дата завершения</mat-label>
+    <input matInput [matDatepicker]="end" [value]="endDate" (dateChange)="startEnd($event)">
+    <mat-datepicker-toggle matIconSuffix [for]="end"></mat-datepicker-toggle>
+    <mat-datepicker #end></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div>    
+    <canvas id="myChart">{{ linechart }}</canvas>    
+  </div> 
+</main>
+<router-outlet />
